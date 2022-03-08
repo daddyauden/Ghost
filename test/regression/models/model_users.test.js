@@ -306,6 +306,11 @@ describe('User Model', function run() {
             }).catch(done);
         });
 
+        it('can edit user with empty roles data', async function () {
+            const firstUser = testUtils.DataGenerator.Content.users[0].id;
+            await UserModel.edit({roles: []}, {id: firstUser});
+        });
+
         it('can NOT set an invalid email address', function (done) {
             const firstUser = testUtils.DataGenerator.Content.users[0].id;
 
